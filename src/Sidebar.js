@@ -1,69 +1,30 @@
+import { useState } from "react";
+import Sugestoes from "./Sugestoes";
+
 export default function Sidebar() {
+  const [nome, setNome] = useState("Catana");
+  const [img, setImg] = useState("img-videos/catanacomics1.png");
+
   return (
     <div class="sidebar">
       <div class="sidebarTop">
-        <img src="img-videos/catanacomics1.png" alt="profile" />
+        <img
+          src={img}
+          alt="profile"
+          onClick={() => setImg(prompt("Coloque o link da sua foto aqui"))}
+        />
         <div sidebarTop-text>
           <p class="sidebarTop-p1">catanacomics</p>
-          <p class="sidebarTop-p2">Catana</p>
+          <div class="pencil">
+            <p class="sidebarTop-p2">{nome}</p>
+            <ion-icon
+              name="pencil"
+              onClick={() => setNome(prompt("Qual seu nome?"))}
+            ></ion-icon>
+          </div>
         </div>
       </div>
-      <div class="suggestion">
-        <p class="suggestion1">Sugestões para você</p>
-        <p class="suggestion2">Ver tudo</p>
-      </div>
-      <div class="sidebarMid">
-        <div class="follow">
-          <div class="follow1">
-            <img src="img-videos/badvibesmemes1.png" alt="profile" />
-            <div class="sidebarMid-text">
-              <p class="sidebarMid-text1">bad.vibes.memes</p>
-              <p class="sidebarMid-text2">Segue você</p>
-            </div>
-          </div>
-          <p class="follow-blue">seguir</p>
-        </div>
-        <div class="follow">
-          <div class="follow1">
-            <img src="img-videos/chibirdart1.png" alt="profile" />
-            <div class="sidebarMid-text">
-              <p class="sidebarMid-text1">chibirdart</p>
-              <p class="sidebarMid-text2">Segue você</p>
-            </div>
-          </div>
-          <p class="follow-blue">seguir</p>
-        </div>
-        <div class="follow">
-          <div class="follow1">
-            <img src="img-videos/razoesparaacreditar1.png" alt="profile" />
-            <div class="sidebarMid-text">
-              <p class="sidebarMid-text1">razoesparaacreditar</p>
-              <p class="sidebarMid-text2">Segue você</p>
-            </div>
-          </div>
-          <p class="follow-blue">seguir</p>
-        </div>
-        <div class="follow">
-          <div class="follow1">
-            <img src="img-videos/adorableanimals1.png" alt="profile" />
-            <div class="sidebarMid-text">
-              <p class="sidebarMid-text1">adorable_animals</p>
-              <p class="sidebarMid-text2">Segue você</p>
-            </div>
-          </div>
-          <p class="follow-blue">seguir</p>
-        </div>
-        <div class="follow">
-          <div class="follow1">
-            <img src="img-videos/smallcutecats1.png" alt="profile" />
-            <div class="sidebarMid-text">
-              <p class="sidebarMid-text1">smallcutecats</p>
-              <p class="sidebarMid-text2">Segue você</p>
-            </div>
-          </div>
-          <p class="follow-blue">seguir</p>
-        </div>
-      </div>
+      <Sugestoes />
       <p class="aboutUs">
         Sobre • Ajuda • Imprensa • API • Carreiras • Privacidade • Termos •
         Localizações • Contas mais relevantes • Hashtags • Idioma
